@@ -1,0 +1,55 @@
+{
+  // AP / IB Computer Science - shared starter-repo container.
+  // Image only, no "features" block: a features block makes Codespaces build a
+  // derived image at creation instead of pulling this one ready-made.
+  "name": "AP/IB Computer Science - Java 21",
+  "image": "mcr.microsoft.com/devcontainers/java:21",
+
+  "customizations": {
+    "vscode": {
+      // Three extensions, not the full Java pack. The pack also pulls in Maven,
+      // Gradle and Project Manager, which this course never uses and which the
+      // language server then spends time importing.
+      //   redhat.java              - language support, compile, errors
+      //   vscjava.vscode-java-debug - the Run | Debug buttons above main()
+      //   editorconfig.editorconfig - makes VS Code obey .editorconfig
+      "extensions": [
+        "redhat.java",
+        "vscjava.vscode-java-debug",
+        "editorconfig.editorconfig"
+      ],
+
+      "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "editor.formatOnSave": true,
+        "editor.renderWhitespace": "boundary",
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "files.autoSave": "afterDelay",
+
+        // --- AI code suggestions off by default ---
+        // Workspace defaults, not a lock. A student can still turn these back
+        // on in their own user settings. See TEMPLATE_NOTES.md.
+        "github.copilot.enable": {
+          "*": false,
+          "java": false,
+          "markdown": false,
+          "plaintext": false
+        },
+        "github.copilot.editor.enableAutoCompletions": false,
+        "editor.inlineSuggest.enabled": false
+      },
+
+      // Not auto-recommended, and flagged as unwanted if already installed.
+      "unwantedRecommendations": [
+        "github.copilot",
+        "github.copilot-chat",
+        "codeium.codeium",
+        "tabnine.tabnine-vscode",
+        "continue.continue"
+      ]
+    }
+  },
+
+  "postCreateCommand": "java -version"
+}

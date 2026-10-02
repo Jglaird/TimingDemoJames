@@ -1,0 +1,3 @@
+# JetBrains AI Assistant: files listed here are not processed or sent to the LLM.
+# Same syntax as .gitignore. Belt and braces alongside .noai.
+*
